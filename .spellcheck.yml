@@ -25,14 +25,8 @@ matrix:
   - pyspelling.filters.context: 
       context_visible_first: true
       delimiters:
-      - open: '```'
-        close: '(\w|\W)+?(?=```)'
-  #Ignore content between backticks
-  - pyspelling.filters.context: 
-      context_visible_first: true
-      delimiters:
-      - open: '(?<!``)`[^`]+'
-        close: '`'
+      - open: '`+[^`]+'
+        close: '`+'
   #Ignore links
   - pyspelling.filters.context: 
       context_visible_first: true
@@ -71,5 +65,5 @@ matrix:
       context_visible_first: true
       delimiters:
       # Ignore multiline content between [source, *] and blank line
-      - open: '\[source,.*\]\r?\n\s*----'
-        close: '\s*----'
+      - open: '\[source, .*\]\r?\n\s*----'
+        close: '[^-]*'
